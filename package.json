@@ -1,0 +1,22 @@
+{
+  "name": "jsml",
+  "version": "0.1.0",
+  "description": "Machine Learning Framework for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "Machine",
+    "Learning",
+    "Neural",
+    "Networks"
+  ],
+  "author": "izisoft",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "jsmock": "^1.0.0",
+    "mocha": "^4.0.1"
+  }
+}
