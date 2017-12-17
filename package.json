@@ -18,5 +18,8 @@
     "chai": "^4.1.2",
     "jsmock": "^1.0.0",
     "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "jsboxmuller": "^1.1.0"
   }
 }
