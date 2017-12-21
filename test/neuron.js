@@ -70,10 +70,10 @@ describe('Neuron', () => {
 
   describe('adjust', () => {
     it('Should update weights according to given gradient', () => {
-      let n = new Neuron(1, activation.sigmoid);
+      let n = new Neuron(2, activation.sigmoid);
       n.w = [2,3];
       n.b = 0;
-      n.adjust([5,6], 0.1);
+      n.adjust([5,6], 0.1, 1, 0);
       expect(n.w).to.deep.equal([2.5, 3.6]); // [2 + 5*0.1, 3 + 6*0.1]
       expect(n.b).to.be.equal(0.1); // 0 + 0.1
     });
