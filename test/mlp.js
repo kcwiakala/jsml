@@ -75,18 +75,18 @@ describe('MultiLayerPerceptron', () => {
 
   it('Should be able to learn and', () => {
     mlp.init(initializer.uniform(0.5,1));
-    expect(learn(mlp, and, 10000, 0.001)).to.be.true;
+    expect(optimizer.train(mlp, and, 10000, 0.001)).to.be.true;
   });
 
   it('Should be able to learn or', () => {
     mlp.init(initializer.uniform(0.5,1));
-    expect(learn(mlp, and, 10000, 0.001)).to.be.true;
+    expect(optimizer.train(mlp, or, 10000, 0.001)).to.be.true;
   });
 
   it('Should be able to learn sin', () => {
     let mlp = new MultiLayerPerceptron([1,2,1], activation.sigmoid);
     mlp.init(initializer.uniform(0.5,1));
-    expect(learn(mlp, sin, 10000, 0.0005)).to.be.true;
+    expect(optimizer.train(mlp, sin, 10000, 0.001)).to.be.true;
     expect(mlp.output([0.5])[0]).to.be.closeTo(Math.sin(0.5), 0.05);
     expect(mlp.output([0.2])[0]).to.be.closeTo(Math.sin(0.2), 0.05);
     expect(mlp.output([0.8])[0]).to.be.closeTo(Math.sin(0.8), 0.05);
