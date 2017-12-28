@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 
 const activation = require('../lib/activation');
 const initializer = require('../lib/initializer');
-const {StochasticGradientDescent, Momentum, AdaGrad, RMSProp} = require('../lib/optimization');
+const {StochasticGradientDescent, Momentum, AdaGrad, RMSProp, Adam} = require('../lib/optimization');
 
 const MultiLayerPerceptron = require('../lib/multiLayerPerceptron');
 
@@ -23,11 +23,11 @@ function learn(network, samples, maxIter, epsilon) {
 
 describe('MultiLayerPerceptron', () => {
   let mlp = new MultiLayerPerceptron([2,3,1], activation.sigmoid);
-  let optimizer = new Momentum(0.5, 0.75);
+  let optimizer = new Adam(0.1);
   
   it('Should be able to learn xor', () => {
     mlp.init(initializer.normal(-0.3, 0.1));
-    expect(optimizer.train(mlp, training.xor, 100000, 0.001)).to.be.true;
+    expect(optimizer.train(mlp, training.xor, 10000, 0.1)).to.be.true;
   });
 
   it('Should be able to learn and', () => {
