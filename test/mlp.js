@@ -8,19 +8,6 @@ const MultiLayerPerceptron = require('../lib/multiLayerPerceptron');
 
 const training = require('./etc/training');
 
-function learn(network, samples, maxIter, epsilon) {
-  for(let i=0; i<maxIter; ++i) {
-    samples.forEach(sample => network.learn(sample, 0.5));
-    if(network.totalLoss(samples) < epsilon) {
-      // for(let i in samples) {
-      //   console.log(samples[i].y, network.output(samples[i].x));
-      // }
-      return true;
-    }
-  }
-  return false;
-}
-
 describe('MultiLayerPerceptron', () => {
   let mlp = new MultiLayerPerceptron([2,3,1], activation.sigmoid);
   let optimizer = new Adam(0.2);
