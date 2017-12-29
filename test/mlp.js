@@ -23,7 +23,7 @@ function learn(network, samples, maxIter, epsilon) {
 
 describe('MultiLayerPerceptron', () => {
   let mlp = new MultiLayerPerceptron([2,3,1], activation.sigmoid);
-  let optimizer = new Adam(0.1);
+  let optimizer = new Adam(0.2);
   
   it('Should be able to learn xor', () => {
     mlp.init(initializer.normal(-0.3, 0.1));
