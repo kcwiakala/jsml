@@ -10,11 +10,11 @@ const training = require('./etc/training');
 
 describe('MultiLayerPerceptron', () => {
   let mlp = new MultiLayerPerceptron([2,3,1], activation.sigmoid);
-  let optimizer = new Adam(0.2);
+  let optimizer = new Momentum(0.5, 0.75);
   
   it('Should be able to learn xor', () => {
     mlp.init(initializer.normal(-0.3, 0.1));
-    expect(optimizer.train(mlp, training.xor, 10000, 0.1)).to.be.true;
+    expect(optimizer.train(mlp, training.xor, 10000, 0.01)).to.be.true;
   });
 
   it('Should be able to learn and', () => {
