@@ -14,7 +14,11 @@ describe('MultiLayerPerceptron', () => {
   
   it('Should be able to learn xor', () => {
     mlp.init(initializer.normal(-0.3, 0.1));
-    expect(optimizer.train(mlp, training.xor, 10000, 0.01)).to.be.true;
+    expect(optimizer.batchTrain(mlp, training.xor, 10000, 10, 0.01)).to.be.true;
+    expect(mlp.output([0,0])[0]).to.be.lt(0.3);
+    expect(mlp.output([1,1])[0]).to.be.lt(0.3);
+    expect(mlp.output([0,1])[0]).to.be.gt(0.7);
+    expect(mlp.output([1,0])[0]).to.be.gt(0.7);
   });
 
   it('Should be able to learn and', () => {
