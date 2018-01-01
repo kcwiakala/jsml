@@ -67,4 +67,15 @@ describe('Neuron', () => {
       expect(n.output([-2])).to.be.closeTo(activation.sigmoid(-2), 0.01);
     });
   });
+
+  describe('serialize', () => {
+    it('Should store essential neuron data', () => {
+      let n = new Neuron(3, activation.sigmoid);
+      let json = n.serialize();
+      expect(json.type).to.be.equal('Neuron');
+      expect(json.activation).to.be.equal('sigmoid');
+      expect(json.w).to.have.length(3);
+      expect(json.b).to.be.a('number');
+    });
+  });
 });
